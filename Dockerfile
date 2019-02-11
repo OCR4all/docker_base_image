@@ -3,8 +3,6 @@ FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-ARG ARTIFACTORY_URL=http://artifactory-ls6.informatik.uni-wuerzburg.de/artifactory/libs-snapshot/de/uniwue
-
 # Enable Networking on port 5000 (Flask), 8080 (Tomcat)
 EXPOSE 5000 8080
 
