@@ -1,0 +1,3 @@
+# Basisimage für OCR4all mit allen Dependencies...
+
+TODO: Beschreibung
