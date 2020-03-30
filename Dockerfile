@@ -3,8 +3,8 @@ FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Enable Networking on port 5000 (Flask), 8080 (Tomcat)
-EXPOSE 5000 8080
+# Enable Networking on port 8080 (Tomcat)
+EXPOSE 8080
 
 # Installing dependencies and deleting cache
 RUN apt-get update && apt-get install -y \
