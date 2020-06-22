@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
     maven \
     tomcat8 \
     openjdk-8-jdk-headless \
-    python python-pip python3 python3-pip python3-pil python-tk \
+    python python-pip python3 python3-pip python-tk \
     wget \
     supervisor && \
     rm -rf /var/lib/apt/lists/*

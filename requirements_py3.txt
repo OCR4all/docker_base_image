@@ -1,3 +1,4 @@
 lxml
 setuptools>=41.0.0
 tensorflow==2.1.0
+pillow>=6.2.0
