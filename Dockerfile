@@ -17,8 +17,7 @@ RUN apt-get update && apt-get install -y \
     tomcat8 \
     openjdk-8-jdk-headless \
     python python-pip python3 python3-pip python3-pil python-tk \
-    wget \
-    supervisor && \
+    wget && \
     rm -rf /var/lib/apt/lists/*
 
 # Installing python dependencies
