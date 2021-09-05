@@ -1,9 +1,8 @@
-ENV BASE_IMAGE=tomcat:9.0-jdk8
+# Base Image
+FROM tomcat:9.0-jdk8
+
 ENV CALAMARI_VERSION=2.1.2
 ENV KRAKEN_VERSION=3.0.4
-
-# Base Image
-FROM $BASE_IMAGE
 
 MAINTAINER Maximilian Nöth
 
