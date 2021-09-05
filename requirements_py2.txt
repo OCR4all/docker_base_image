@@ -1,5 +1,0 @@
-scikit-image
-numpy
-matplotlib
-scipy
-lxml
