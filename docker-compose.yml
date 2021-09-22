@@ -1,0 +1,10 @@
+version: "3"
+services:
+  latest:
+    build:
+      context: .
+    image: uniwuezpd/ocr4all_base:latest
+  dev:
+    build:
+      context: .
+    image: uniwuezpd/ocr4all_base:dev
