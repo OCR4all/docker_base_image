@@ -37,7 +37,7 @@ RUN rm -r /var/ocr4all/models/default/default/2.0.tar.gz
 
 RUN curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py
 RUN python get-pip.py
-RUN python -m pip install numpy scipy matplotlib Pillow lxml
+RUN python -m pip install numpy scipy matplotlib==2.0.2 Pillow lxml
 
 # Install ocropy
 WORKDIR /opt
