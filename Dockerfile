@@ -59,7 +59,7 @@ RUN git reset --hard ${KRAKEN_COMMIT} && \
 RUN rm -r /opt/kraken
 
 WORKDIR /opt
-RUN git clone -b calamari/2.1 https://github.com/Calamari-OCR/calamari
+RUN git clone https://github.com/Calamari-OCR/calamari
 WORKDIR /opt/calamari
 RUN git reset --hard ${CALAMARI_COMMIT} && \
     python3 -m pip install .
