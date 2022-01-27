@@ -41,7 +41,7 @@ RUN python -m pip install numpy scipy matplotlib==2.0.2 Pillow lxml
 
 # Install ocropy
 WORKDIR /opt
-RUN git clone -b master https://gitlab2.informatik.uni-wuerzburg.de/chr58bk/mptv.git ocropy
+RUN git clone --depth 1 -b master https://gitlab2.informatik.uni-wuerzburg.de/chr58bk/mptv.git ocropy
 WORKDIR ocropy
 RUN git reset --hard ${OCROPY_COMMIT} && \
     python setup.py install && \
@@ -52,14 +52,14 @@ RUN git reset --hard ${OCROPY_COMMIT} && \
 RUN python3 -m pip install --upgrade pip
 
 WORKDIR /opt
-RUN git clone -b master https://github.com/mittagessen/kraken
+RUN git clone --depth 1 -b master https://github.com/mittagessen/kraken
 WORKDIR /opt/kraken
 RUN git reset --hard ${KRAKEN_COMMIT} && \
     python3 -m pip install .
 RUN rm -r /opt/kraken
 
 WORKDIR /opt
-RUN git clone https://github.com/Calamari-OCR/calamari
+RUN git clone --depth 1 https://github.com/Calamari-OCR/calamari
 WORKDIR /opt/calamari
 RUN git reset --hard ${CALAMARI_COMMIT} && \
     python3 -m pip install .
