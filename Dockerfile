@@ -34,6 +34,10 @@ WORKDIR /var/ocr4all/models/default/default
 RUN wget https://github.com/Calamari-OCR/calamari_models/archive/refs/tags/2.0.tar.gz
 RUN tar -xvzf /var/ocr4all/models/default/default/2.0.tar.gz --strip-components=1
 RUN rm -r /var/ocr4all/models/default/default/2.0.tar.gz
+# Download experimental deep3 models
+RUN git clone --depth 1 https://github.com/maxnth/calamari_models_experimental
+RUN mv /var/ocr4all/models/default/default/calamari_models_experimental/* /var/ocr4all/models/default/default/.
+RUN rm -r /var/ocr4all/models/default/default/calamari_models_experimental
 
 RUN curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py
 RUN python get-pip.py
