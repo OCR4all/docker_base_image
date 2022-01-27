@@ -39,6 +39,7 @@ RUN git clone --depth 1 https://github.com/maxnth/calamari_models_experimental
 RUN mv /var/ocr4all/models/default/default/calamari_models_experimental/* /var/ocr4all/models/default/default/.
 RUN rm -r /var/ocr4all/models/default/default/calamari_models_experimental
 
+# Download pip for Python 2.7
 RUN curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py
 RUN python get-pip.py
 RUN python -m pip install numpy scipy matplotlib==2.0.2 Pillow lxml
@@ -55,6 +56,7 @@ RUN git reset --hard ${OCROPY_COMMIT} && \
 
 RUN python3 -m pip install --upgrade pip
 
+# Install kraken
 WORKDIR /opt
 RUN git clone --depth 1 -b master https://github.com/mittagessen/kraken
 WORKDIR /opt/kraken
@@ -62,6 +64,7 @@ RUN git reset --hard ${KRAKEN_COMMIT} && \
     python3 -m pip install .
 RUN rm -r /opt/kraken
 
+# Install calamari
 WORKDIR /opt
 RUN git clone --depth 1 https://github.com/Calamari-OCR/calamari
 WORKDIR /opt/calamari
