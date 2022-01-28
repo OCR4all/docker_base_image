@@ -28,16 +28,6 @@ RUN apt-get install -y curl
 RUN python -m pip install --upgrade pip
 RUN python3 -m pip install --upgrade pip
 
-# Downloads models
-RUN mkdir -p /var/ocr4all/models/default/default
-WORKDIR /var/ocr4all/models/default/default
-RUN wget https://github.com/Calamari-OCR/calamari_models/archive/refs/tags/2.0.tar.gz
-RUN tar -xvzf /var/ocr4all/models/default/default/2.0.tar.gz --strip-components=1
-RUN rm -r /var/ocr4all/models/default/default/2.0.tar.gz
-# Download experimental deep3 models
-RUN git clone --depth 1 https://github.com/maxnth/calamari_models_experimental
-RUN mv /var/ocr4all/models/default/default/calamari_models_experimental/* /var/ocr4all/models/default/default/.
-RUN rm -r /var/ocr4all/models/default/default/calamari_models_experimental
 
 # Download pip for Python 2.7
 RUN curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py
@@ -71,3 +61,10 @@ WORKDIR /opt/calamari
 RUN git reset --hard ${CALAMARI_COMMIT} && \
     python3 -m pip install .
 RUN rm -r /opt/calamari
+
+# Downloads calamari models
+RUN mkdir -p /var/ocr4all/models/default/default
+WORKDIR /var/ocr4all/models/default/default
+RUN git clone --depth 1 https://github.com/OCR4all/ocr4all_models
+RUN mv ocr4all_models/* .
+RUN rm -r ocr4all_models
