@@ -21,7 +21,7 @@ RUN apt-get install -y build-essential
 RUN apt-get install -y python2
 RUN apt-get install -y python3-pip python3-setuptools python3-wheel python3.7-distutils python3.7
 RUN apt-get install -y python-tk
-RUN apt-get install -y openjdk-8-jre-headless
+RUN apt-get install -y openjdk-8-jdk-headless
 RUN apt-get install -y tomcat9
 RUN apt-get install -y git
 RUN apt-get install -y maven
