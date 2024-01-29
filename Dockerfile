@@ -5,6 +5,11 @@ ENV CALAMARI_COMMIT="2f71b7eb08339d25ccb21d80c1d5b851f3d5bdaa"
 ENV KRAKEN_COMMIT="95981e0bcd354f37e2df7d3d07d40ebefc426400"
 ENV OCROPY_COMMIT="d1472da2dd28373cda4fcbdc84956d13ff75569c"
 
+ENV CATALINA_HOME /usr/local/tomcat
+ENV PATH $CATALINA_HOME/bin:$PATH
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
+ENV TOMCAT_VERSION 9.0.85
+
 MAINTAINER Maximilian Nöth
 
 # Enable Networking on port 8080 (Tomcat)
@@ -22,7 +27,6 @@ RUN apt-get install -y python2
 RUN apt-get install -y python3-pip python3-setuptools python3-wheel python3.7-distutils python3.7
 RUN apt-get install -y python-tk
 RUN apt-get install -y openjdk-8-jdk-headless
-RUN apt-get install -y tomcat9
 RUN apt-get install -y git
 RUN apt-get install -y maven
 RUN apt-get install -y wget
@@ -73,3 +77,11 @@ WORKDIR /var/ocr4all/models/default/default
 RUN git clone --depth 1 https://github.com/OCR4all/ocr4all_models
 RUN mv ocr4all_models/* .
 RUN rm -r ocr4all_models
+
+# Install Tomcat9
+RUN mkdir $CATALINA_HOME
+RUN wget https://archive.apache.org/dist/tomcat/tomcat-9/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz -O /tmp/tomcat.tar.gz
+RUN cd /tmp && tar xvfz tomcat.tar.gz
+RUN cp -Rv /tmp/apache-tomcat-${TOMCAT_VERSION}/* $CATALINA_HOME
+RUN rm -rf /tmp/apache-tomcat-${TOMCAT_VERSION}
+RUN rm -rf /tmp/tomcat.tar.gz
