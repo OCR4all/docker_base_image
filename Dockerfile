@@ -31,6 +31,7 @@ RUN apt-get install -y git
 RUN apt-get install -y maven
 RUN apt-get install -y wget
 RUN apt-get install -y curl
+RUN apt-get install -y libcudnn8
 RUN apt-get clean
 
 # Update pip
